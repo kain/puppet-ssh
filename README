@@ -1,0 +1,7 @@
+## Based on
+
+https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Deployment_Guide/sec-Distributing_and_Trusting_SSH_CA_Public_Keys.html
+http://emeraldreverie.org/blog/2013/03/11/managing-ssh-host-keys-in-reliable-way/
+https://github.com/GregSutcliffe/puppet-modules
+https://jsosic.wordpress.com/2012/12/04/managing-ssh-host-keys-with-puppet/
+https://blog.bastelfreak.de/2016/06/create-ssh-keys-with-puppet-on-a-server-pubkey-exchange/
