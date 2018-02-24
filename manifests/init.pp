@@ -26,7 +26,6 @@
 # === Examples
 #
 #  class { 'ssh':
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
 #  }
 #
 # === Authors
@@ -77,7 +76,7 @@ class ssh {
   file { '/etc/ssh/ssh_host_rsa_key':
     owner   => 'root',
     group   => 'root',
-    mode    => 0600,
+    mode    => '0600',
     content => $rsa_priv,
     notify => Service['ssh'],
   }
@@ -85,7 +84,7 @@ class ssh {
   file { '/etc/ssh/ssh_host_rsa_key.pub':
     owner   => 'root',
     group   => 'root',
-    mode    => 0644,
+    mode    => '0644',
     content => "ssh-rsa $rsa_pub host_rsa_${::hostname}\n",
     notify => Service['ssh'],
   }
@@ -93,7 +92,7 @@ class ssh {
   file { '/etc/ssh/ssh_host_rsa_key-cert.pub':
     owner   => 'root',
     group   => 'root',
-    mode    => 0644,
+    mode    => '0644',
     content => $rsa_cert,
     notify => Service['ssh'],
   }
