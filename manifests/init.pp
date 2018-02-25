@@ -45,21 +45,24 @@ class ssh {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('ssh/sshd_config.erb')
+    content => epp('ssh/sshd_config.epp', {
+      'allow_users' => lookup('allow_users', Array[String], 'unique'),
+    }),
+    notify  => Service['ssh'],
   }
   ~>
   file { '/etc/ssh/users_ca.pub':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('ssh/users_ca.pub.erb')
+    content => epp('ssh/users_ca.pub.epp')
   }
   ~>
   file { '/etc/ssh/ssh_known_hosts':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('ssh/ssh_known_hosts.erb')
+    content => epp('ssh/ssh_known_hosts.epp')
   }
   ~>
   service { 'ssh':

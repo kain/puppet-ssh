@@ -1,9 +1,10 @@
+<%- | Array[String] $allow_users | -%>
+# File is managed by Puppet
+
 Port 22
 Protocol 2
 HostKey /etc/ssh/ssh_host_rsa_key
 UsePrivilegeSeparation yes
-KeyRegenerationInterval 3600
-ServerKeyBits 1024
 SyslogFacility AUTH
 LogLevel INFO
 LoginGraceTime 120
@@ -16,13 +17,15 @@ PermitEmptyPasswords no
 ChallengeResponseAuthentication no
 X11Forwarding yes
 X11DisplayOffset 10
+GSSAPIAuthentication no
 PrintMotd no
 PrintLastLog yes
 TCPKeepAlive yes
 AcceptEnv LANG LC_*
 Subsystem sftp internal-sftp
+UseDNS no
 UsePAM yes
 HostCertificate /etc/ssh/ssh_host_rsa_key-cert.pub
 TrustedUserCAKeys /etc/ssh/users_ca.pub
-AllowGroups root wheel sudo adm users
+AllowUsers <%= join($allow_users, ' ') %>
 GatewayPorts yes
