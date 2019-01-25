@@ -1,0 +1,14 @@
+{
+  "name": "kain-ssh",
+  "version": "0.1.0",
+  "author": "kain",
+  "summary": "Manage SSH keys and settings",
+  "license": "Apache 2.0",
+  "source": "https://github.com/kain/puppet",
+  "project_page": "https://github.com/kain/puppet",
+  "issues_url": "https://github.com/kain/puppet/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
